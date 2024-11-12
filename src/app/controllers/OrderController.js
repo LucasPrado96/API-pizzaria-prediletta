@@ -12,8 +12,18 @@ class OrderController {
                 Yup.object({
                     id: Yup.number().required(),
                     quantity: Yup.number().required(),
+                    borda: Yup.string(),
                 }),
             ),
+            address: Yup.object().shape({
+                rua: Yup.string().required(),
+                bairro: Yup.string().required(),
+                numero: Yup.string().required(),
+                cep: Yup.string().required(),
+                cidade: Yup.string().required(),
+            }).required(),
+            paymentMethod: Yup.string().required()
+
         })
 
         try {
@@ -26,9 +36,9 @@ class OrderController {
 
     
 
-        const { products } = request.body
-
-
+        const { products, address, paymentMethod, TotalOrder, borda} = request.body
+        console.log(request.body);
+        
         const productsIds = products.map(product => product.id)
 
         const productsData = await Products.findAll({
@@ -45,7 +55,7 @@ class OrderController {
 
         const formatedProducts = productsData.map( product => {
             const productsIndex = products.findIndex((item)=>  item.id === product.id);
-
+            
 
             const newProduct = {
                 id: product.id,
@@ -53,19 +63,30 @@ class OrderController {
                 price: product.price,
                 category: product.category.name,
                 url: product.url,
-                quantity: products[productsIndex].quantity
+                quantity: products[productsIndex].quantity,
+                borda: request.body.borda || 'sem borda',
+                
             };
-
+           
             return newProduct;
         })
 
-
+      
+     
         const order = ({
             user: {
                 id: request.userId,
                 name: request.userName,
-            }, products: formatedProducts,
-            status: 'Pedido realizado'
+                phone: request.userPhone,
+               
+            }, 
+            products: formatedProducts,
+            address,
+            paymentMethod,
+            status: 'Pedido realizado',
+           
+            TotalValue: TotalOrder,
+           
 
         })
 

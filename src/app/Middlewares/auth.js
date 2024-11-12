@@ -15,9 +15,11 @@ function authMiddleware(request, response, next){
         if(err){
             throw new Error()
         }
-      
+        console.log(request.userPhone); 
         request.userId = decoded.id;
         request.userName = decoded.name;
+        request.userPhone = decoded.phone;
+       
 
     });
  } catch(err){

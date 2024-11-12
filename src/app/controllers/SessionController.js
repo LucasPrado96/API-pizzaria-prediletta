@@ -52,7 +52,7 @@ if(!isSamePassword){
             email: user.email,
             admin: user.admin,
             phone: user.phone,
-            token: jwt.sign({id: user.id, name: user.name}, authConfig.secret, {
+            token: jwt.sign({id: user.id, name: user.name, phone: user.phone}, authConfig.secret, {
                 expiresIn: authConfig.expiresIn
             })
     

@@ -116,6 +116,27 @@ class ProductController{
      
     }
 
+    async delete(request, response){
+        const {admin: isAdmin} = await Users.findByPk(request.userId);
+
+        if(!isAdmin){
+            return response.status(400).JSON({Error: 'You are not authorized'})
+        }
+
+        const {id} = request.params;
+
+        const product = await Products.findByPk(id);
+
+        if(!product){
+            return response.status(400).json({Error: 'Product not found'})
+        }
+
+        await product.destroy();
+        return response.status(200).json({Message: 'Product deleted successfully'})
+
+
+    }
+
 }
 
 export default new ProductController()

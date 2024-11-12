@@ -13,6 +13,11 @@ const OrderSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+
+        phone:{
+            type: String,
+            required: true,
+        },
     },
 
     products: [{
@@ -45,12 +50,61 @@ const OrderSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+
+        borda: {
+            type: String,
+            required: true,
+        },
     }],
+
+    address:{
+
+        rua:{
+            type: String,
+            required: true,
+        },
+
+        bairro:{
+            type: String,
+            required: true,
+        },
+
+        numero: {
+            type: String,
+            required: true,
+        },
+
+        cep: {
+            type: String,
+            required: true,
+        },
+
+        cidade: {
+            type: String,
+            required: true,
+        },
+
+    },
+       
+    paymentMethod:{
+        type: String,
+        required: true,
+    },
+
+    TotalValue:{
+        type: Number,
+        required: true,
+    },
+    
+
+    
 
     status: {
         type: String,
         required: true,
     },
+
+  
 
 }, 
     {
