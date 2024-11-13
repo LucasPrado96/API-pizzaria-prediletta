@@ -114,12 +114,14 @@ class OrderController {
             return response.status(400).json({ Error: err.errors })
         }
 
-        const {admin: isAdmin} = await Users.findByPk(request.userId)
+        const user = await Users.findByPk(request.userId)
 
-        if(!isAdmin){
+        if(!user){
             return response.status(401).json()
         }
 
+        const {admin: isAdmin} = user
+        
         const {id } = request.params
         const { status} = request.body
 

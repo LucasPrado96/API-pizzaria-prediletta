@@ -4,6 +4,7 @@
   "description": "pizaria API",
   "main": "src/server.js",
   "scripts": {
+    
     "dev": "nodemon"
   },
   "author": {
