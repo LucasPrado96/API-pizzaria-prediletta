@@ -4,7 +4,7 @@
   "description": "pizaria API",
   "main": "src/server.js",
   "scripts": {
-    "build": "yarn install --frozen-lockfile && yarn build",
+    "start": "node src/server.js",
     "dev": "nodemon"
   },
   "author": {
