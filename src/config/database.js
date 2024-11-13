@@ -1,6 +1,6 @@
 module.exports = {
     dialect: 'postgres',
-    url: 'postgresql://postgres:RKlZNRpNKIDsnpmbqQmDrHiThBWnixWd@junction.proxy.rlwy.net:47746/railway',
+    url: 'postgresql://postgres:TFiZAyKNlESZnjpNFysELbkutRjDJtau@junction.proxy.rlwy.net:43732/railway',
     // host: 'Localhost',
     // username: 'postgres',
     // password: 'postgres',
