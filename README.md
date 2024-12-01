@@ -1,5 +1,5 @@
 <body>
-  <h1>Plataforma de Delivery para Pizzarias 🍕</h1>
+  <h1>Plataforma de Delivery para Pizzaria Prediletta 🍕</h1>
 
   <h2>Descrição do Projeto</h2>
   <p>
